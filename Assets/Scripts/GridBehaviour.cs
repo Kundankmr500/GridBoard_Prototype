@@ -10,6 +10,8 @@ public class GridBehaviour : MonoBehaviour
     public GameObject GridPrefab;
     public List<GameObject> GridItemList;
     public Material DemoMat;
+    [Header("Enable this to see the score up tiles in green color")]
+    public bool ScoreUpTileVisible;
     
     private void Awake()
     {
@@ -41,8 +43,9 @@ public class GridBehaviour : MonoBehaviour
         for (int i = 0; i < GameHandler.Instance.RandomTileCount; i++)
         {
             int randomIndex = Random.Range(0, GridItemList.Count);
-            // GridItemList[randomIndex].gameObject.GetComponent<Renderer>().material = DemoMat; // enable this line for testing purpose.
             GridItemList[randomIndex].gameObject.tag = Constant.SelectedTileTag;
+            if(ScoreUpTileVisible)
+                GridItemList[randomIndex].gameObject.GetComponent<Renderer>().material = DemoMat;
             GridItemList.RemoveAt(randomIndex);
         }
     }
