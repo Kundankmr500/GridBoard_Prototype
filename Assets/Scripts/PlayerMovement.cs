@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using DG.Tweening;
 using UnityEngine;
-using DG.Tweening;
-using UnityEngine.Serialization;
-using UnityEngine.UIElements;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -16,17 +12,21 @@ public class PlayerMovement : MonoBehaviour
     public KeyCode PlayerInput_Right;
     public KeyCode PlayerTileSelection;
     public Material SelectionMaterial;
+    public Material FalseSelectionMaterial;
+    public Material NearSelectionMaterial;
     public GameObject PlayerObj;
 
     private bool _canMovePlayer;
     private bool _isFoundTile;
     private GameObject _selectedTile;
     
+
     private void Start()
     {
         SetPlayerStartPosition();
         _isFoundTile = false;
     }
+
 
     private void Update()
     {
@@ -50,6 +50,7 @@ public class PlayerMovement : MonoBehaviour
         else if (Input.GetKeyDown(PlayerTileSelection))
         {
             GameHandler.Instance.CheckForPlayerChance();
+            ChangeTileColorToFalseSelection();
         }
     }
 
@@ -61,14 +62,15 @@ public class PlayerMovement : MonoBehaviour
 
         if (Physics.Raycast(ray, out hitInfo))
         {
+            _selectedTile = hitInfo.collider.gameObject;
             if (hitInfo.collider.CompareTag(Constant.SelectedTileTag))
             {
-                _selectedTile = hitInfo.collider.gameObject;
                 ChangeTileColor();
             }
             else
             {
                 GameHandler.Instance.CheckForPlayerChance();
+                ChangeTileColorToFalseSelection();
             }
         }
     }
@@ -79,14 +81,20 @@ public class PlayerMovement : MonoBehaviour
         _selectedTile.GetComponent<Renderer>().material = SelectionMaterial;
         GameHandler.Instance.CalculateScore();
     }
-    
+
+
+    public void ChangeTileColorToFalseSelection()
+    {
+        _selectedTile.GetComponent<Renderer>().material = FalseSelectionMaterial;
+    }
+
 
     public void OnTriggerEnter(Collider other)
     {
+        _selectedTile = other.gameObject;
         if (other.CompareTag(Constant.SelectedTileTag))
         {
             _isFoundTile = true;
-            _selectedTile = other.gameObject;
         }
     }
 

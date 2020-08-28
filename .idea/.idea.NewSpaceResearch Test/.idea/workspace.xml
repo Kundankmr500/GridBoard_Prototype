@@ -21,10 +21,10 @@
       <list>
         <option value="$PROJECT_DIR$/Assets/Scripts/TileCheck.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/ConstantStrings.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/PlayerMovement.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Constant.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/GameHandler.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/GridBehaviour.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/PlayerMovement.cs" />
       </list>
     </option>
   </component>
@@ -84,7 +84,7 @@
       <updated>1581570683572</updated>
       <workItem from="1581570710790" duration="665000" />
       <workItem from="1581572326927" duration="2331000" />
-      <workItem from="1581595412756" duration="13934000" />
+      <workItem from="1581595412756" duration="14518000" />
     </task>
     <servers />
   </component>

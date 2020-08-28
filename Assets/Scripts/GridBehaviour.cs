@@ -12,7 +12,10 @@ public class GridBehaviour : MonoBehaviour
     public Material DemoMat;
     [Header("Enable this to see the score up tiles in green color")]
     public bool ScoreUpTileVisible;
-    
+
+
+    private int[,] Grid;
+
     private void Awake()
     {
         if (GridPrefab)
@@ -25,19 +28,29 @@ public class GridBehaviour : MonoBehaviour
             Debug.Log("Missing GridPrefab, please assign gridPrefab");
         }
     }
-    
+
     public void GenerateGrid()
     {
-        for (int i = 0; i < ColumnLength * RowLength; i++)
+        for (int i = 0; i < ColumnLength; i++)
         {
-            GameObject obj = Instantiate(GridPrefab, new Vector3(X_Start + (X_Space * (i % ColumnLength)), 0.01f ,Z_Start + (Z_Space * (i / ColumnLength))),
-                Quaternion.Euler(90,0,0));
-            obj.transform.SetParent(transform);
-            GridItemList.Add(obj);
+            for (int j = 0; j < RowLength; j++)
+            {
+                SpawnObj(i, j);
+            }
         }
     }
 
+    
+    private void SpawnObj(int x, int y)
+    {
+        GameObject obj = Instantiate(GridPrefab, new Vector3(X_Start + (X_Space * x), 0.01f, Z_Start + (Z_Space * y)),
+                         Quaternion.Euler(90, 0, 0));
+        obj.name = "X: " + x + " Y: " + y;
+        obj.transform.SetParent(transform);
+        GridItemList.Add(obj);
+    }
 
+    // Generating items in the grid
     private void GenerateRandomNoOfItems()
     {
         for (int i = 0; i < GameHandler.Instance.RandomTileCount; i++)
@@ -49,6 +62,5 @@ public class GridBehaviour : MonoBehaviour
             GridItemList.RemoveAt(randomIndex);
         }
     }
-    
 }
 

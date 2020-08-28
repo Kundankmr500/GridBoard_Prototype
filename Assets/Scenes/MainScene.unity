@@ -216,7 +216,7 @@ RectTransform:
   - {fileID: 1322425912}
   - {fileID: 274607742}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -258,7 +258,7 @@ Camera:
   m_GameObject: {fileID: 199427371}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
+  m_ClearFlags: 2
   m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
@@ -300,7 +300,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 199427371}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 19.21, y: 41.9, z: 20.1}
+  m_LocalPosition: {x: 19.21, y: 37, z: 19}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -788,6 +788,10 @@ MonoBehaviour:
   PlayerInput_Right: 100
   PlayerTileSelection: 32
   SelectionMaterial: {fileID: 2100000, guid: 5b39ad0ec5c61a04f97e2997397255bc, type: 2}
+  FalseSelectionMaterial: {fileID: 2100000, guid: 98022d4ea4db03c43b8312382dff7197,
+    type: 2}
+  NearSelectionMaterial: {fileID: 2100000, guid: ee0d2ddb46a45ab429bb6af7846234e3,
+    type: 2}
   PlayerObj: {fileID: 499469148}
 --- !u!54 &499469154
 Rigidbody:
@@ -1239,14 +1243,14 @@ Light:
   m_Enabled: 1
   serializedVersion: 9
   m_Type: 1
-  m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
-  m_Intensity: 1
-  m_Range: 10
-  m_SpotAngle: 30
-  m_InnerSpotAngle: 21.80208
+  m_Color: {r: 1, g: 0.75, b: 0.75, a: 1}
+  m_Intensity: 0.8
+  m_Range: 241.5
+  m_SpotAngle: 66
+  m_InnerSpotAngle: 1
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 2
+    m_Type: 0
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -1279,7 +1283,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 4
+  m_Lightmapping: 2
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -1367,7 +1371,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1322425911
 GameObject:
@@ -1555,7 +1559,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1538818498
 MonoBehaviour:
@@ -1617,7 +1621,8 @@ MonoBehaviour:
   GridPrefab: {fileID: 7480137926560631042, guid: 0f23d32e3ff22974b8f4b8459cf26b9d,
     type: 3}
   GridItemList: []
-  DemoMat: {fileID: 2100000, guid: 98022d4ea4db03c43b8312382dff7197, type: 2}
+  DemoMat: {fileID: 2100000, guid: d1359cb08c1f8014dabaa2201701249b, type: 2}
+  ScoreUpTileVisible: 1
 --- !u!4 &1958585827
 Transform:
   m_ObjectHideFlags: 0
