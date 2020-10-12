@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8e47b7d17f13ad4b8162a2cdbdd9dcc, type: 3}
+  m_Name: GameConfiguration
+  m_EditorClassIdentifier: 
+  SpecialCellCount: 10
+  ScoreValuePerCell: 10
+  MaxPlayerChance: 20
+  RangeForChekingCellWithinGrid: 2
+  SpecialCellMaterial: {fileID: 2100000, guid: c2263fdaf06a88b478fadf8fb7186868, type: 2}
+  RedCellMaterial: {fileID: 2100000, guid: 5b39ad0ec5c61a04f97e2997397255bc, type: 2}
+  GreenCellMaterial: {fileID: 2100000, guid: 98022d4ea4db03c43b8312382dff7197, type: 2}
+  YellowCellMaterial: {fileID: 2100000, guid: ee0d2ddb46a45ab429bb6af7846234e3, type: 2}
+  DefaultMaterial: {fileID: 2100000, guid: fb96f0d8d1a6762468c38028ff404e04, type: 2}
