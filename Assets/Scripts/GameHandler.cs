@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -7,7 +6,11 @@ using UnityEngine.SceneManagement;
 public class GameHandler : MonoBehaviour
 {
     public static GameHandler Instance;
-    public int RandomTileCount;
+    public int SpecialTileCount;
+    public Material SpecialTileMaterial;
+    public Material RedTileMaterial;
+    public Material GreenTileMaterial;
+    public Material YellowTileMaterial;
     public TextMeshProUGUI ScoreText;
     public TextMeshProUGUI RemainingChanceText;
     public TextMeshProUGUI GameOverText;
@@ -46,7 +49,7 @@ public class GameHandler : MonoBehaviour
     public void CheckForCollectedTiles()
     {
         _collectedTiles++;
-        if (_collectedTiles == RandomTileCount)
+        if (_collectedTiles == SpecialTileCount)
         {
             ShowPlayerWinScreen();
         }
