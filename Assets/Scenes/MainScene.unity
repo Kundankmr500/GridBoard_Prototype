@@ -358,7 +358,7 @@ MonoBehaviour:
   CellPrefab: {fileID: 5273130166619951189, guid: 0f23d32e3ff22974b8f4b8459cf26b9d,
     type: 3}
   CellParent: {fileID: 1958585827}
-  IsSpecialCellVisible: 0
+  IsSpecialCellVisible: 1
   SpecialCellList: []
 --- !u!1 &245116423
 GameObject:

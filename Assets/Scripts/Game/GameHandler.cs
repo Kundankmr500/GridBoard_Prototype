@@ -9,10 +9,9 @@ namespace Game
 {
     public class GameHandler : MonoBehaviour
     {
+        [Header("Variables must check before start of the game")]
         public GridBehaviour GridInstance;
         public GameConfiguration GameConfiguration; // Game Configuration file
-
-        [Header("Veriable must check before start of the game")]
         public PlayerMovement playerMovement;
         public GameObject RestartGameButton;
         public TextMeshProUGUI ScoreText;
@@ -59,12 +58,11 @@ namespace Game
         // Player input cell selection process
         public void PlayerInputSelectionProcess(int xPos, int yPos)
         {
-            if (!isInvalid(xPos, yPos)) //condition for clicking only in game board area 
+            if (!isInvalid(xPos, yPos) && GridInstance.Grid[xPos, yPos].IsVisited == false) //condition for clicking only in game board area 
             {
                 Cell cell = GridInstance.Grid[xPos, yPos];
                 CellSelectionRules(cell, xPos, yPos);
 
-                Debug.Log("celltype - " + cell.CellType);
             }
         }
 
@@ -72,6 +70,7 @@ namespace Game
         // Actual rules for cell slection color
         private void CellSelectionRules(Cell cell, int xPos, int yPos)
         {
+            cell.IsVisited = true;
             if (cell.CellType == CellType.Special)
             {
                 cell.ChangeCellMat(GameConfiguration.RedCellMaterial);

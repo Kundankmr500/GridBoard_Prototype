@@ -1,11 +1,11 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
 
 namespace Game
 {
     public class GridBehaviour : MonoBehaviour
     {
+        [Header("Grid config variables (can encapsulate into scriptable object)")]
         public GameHandler GameHandler;
         public int ColumnLength, RowLength;
         public int X_Offset, Y_Offset;
@@ -13,10 +13,9 @@ namespace Game
         public Transform CellParent;
         public Cell[,] Grid;
 
-        [Header("Enable this to see the score up cells in green color")]
+        [Header("Enable this to see the Special cells in magenta color")]
         public bool IsSpecialCellVisible;
 
-        [SerializeField]
         private List<Cell> SpecialCellList;
 
 
@@ -36,6 +35,7 @@ namespace Game
         public void GenerateGrid()
         {
             Grid = new Cell[RowLength, ColumnLength];
+            SpecialCellList = new List<Cell>();
 
             for (int i = 0; i < GameHandler.GameConfiguration.SpecialCellCount; i++)
             {

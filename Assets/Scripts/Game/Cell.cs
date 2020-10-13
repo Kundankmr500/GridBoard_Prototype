@@ -5,6 +5,7 @@ namespace Game
     public class Cell : MonoBehaviour
     {
         public CellType CellType;
+        public bool IsVisited = false;
 
         public void ChangeCellMat(Material specialTileMaterial)
         {
